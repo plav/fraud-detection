@@ -1,0 +1,51 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type Account @model {
+  id: ID!
+  fname: String!
+  sname: String!
+  email: String!
+  phone: String!
+  bname: String!
+  bcity: String!
+  transactions: [Transaction] @hasMany
+}
+
+type Transaction @model {
+  id: ID!
+  account: Account @belongsTo
+  v1: Float!
+  v2: Float!
+  v3: Float!
+  v4: Float!
+  v5: Float!
+  v6: Float!
+  v7: Float!
+  v8: Float!
+  v9: Float!
+  v10: Float!
+  v11: Float!
+  v12: Float!
+  v13: Float!
+  v14: Float!
+  v15: Float!
+  v16: Float!
+  v17: Float!
+  v18: Float!
+  v19: Float!
+  v20: Float!
+  v21: Float!
+  v22: Float!
+  v23: Float!
+  v24: Float!
+  v25: Float!
+  v26: Float!
+  v27: Float!
+  v28: Float!
+  amount: Float!
+  time: String!
+  prob: Float
+  pred: Int 
+}

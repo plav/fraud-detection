@@ -1,0 +1,343 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateAccount(
+  $input: CreateAccountInput!
+  $condition: ModelAccountConditionInput
+) {
+  createAccount(input: $input, condition: $condition) {
+    id
+    fname
+    sname
+    email
+    phone
+    bname
+    bcity
+    transactions {
+      items {
+        id
+        v1
+        v2
+        v3
+        v4
+        v5
+        v6
+        v7
+        v8
+        v9
+        v10
+        v11
+        v12
+        v13
+        v14
+        v15
+        v16
+        v17
+        v18
+        v19
+        v20
+        v21
+        v22
+        v23
+        v24
+        v25
+        v26
+        v27
+        v28
+        amount
+        time
+        prob
+        pred
+        createdAt
+        updatedAt
+        accountTransactionsId
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateAccount(
+  $input: UpdateAccountInput!
+  $condition: ModelAccountConditionInput
+) {
+  updateAccount(input: $input, condition: $condition) {
+    id
+    fname
+    sname
+    email
+    phone
+    bname
+    bcity
+    transactions {
+      items {
+        id
+        v1
+        v2
+        v3
+        v4
+        v5
+        v6
+        v7
+        v8
+        v9
+        v10
+        v11
+        v12
+        v13
+        v14
+        v15
+        v16
+        v17
+        v18
+        v19
+        v20
+        v21
+        v22
+        v23
+        v24
+        v25
+        v26
+        v27
+        v28
+        amount
+        time
+        prob
+        pred
+        createdAt
+        updatedAt
+        accountTransactionsId
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteAccount(
+  $input: DeleteAccountInput!
+  $condition: ModelAccountConditionInput
+) {
+  deleteAccount(input: $input, condition: $condition) {
+    id
+    fname
+    sname
+    email
+    phone
+    bname
+    bcity
+    transactions {
+      items {
+        id
+        v1
+        v2
+        v3
+        v4
+        v5
+        v6
+        v7
+        v8
+        v9
+        v10
+        v11
+        v12
+        v13
+        v14
+        v15
+        v16
+        v17
+        v18
+        v19
+        v20
+        v21
+        v22
+        v23
+        v24
+        v25
+        v26
+        v27
+        v28
+        amount
+        time
+        prob
+        pred
+        createdAt
+        updatedAt
+        accountTransactionsId
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateTransaction(
+  $input: CreateTransactionInput!
+  $condition: ModelTransactionConditionInput
+) {
+  createTransaction(input: $input, condition: $condition) {
+    id
+    account {
+      id
+      fname
+      sname
+      email
+      phone
+      bname
+      bcity
+      transactions {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    v1
+    v2
+    v3
+    v4
+    v5
+    v6
+    v7
+    v8
+    v9
+    v10
+    v11
+    v12
+    v13
+    v14
+    v15
+    v16
+    v17
+    v18
+    v19
+    v20
+    v21
+    v22
+    v23
+    v24
+    v25
+    v26
+    v27
+    v28
+    amount
+    time
+    prob
+    pred
+    createdAt
+    updatedAt
+    accountTransactionsId
+  }
+}
+mutation UpdateTransaction(
+  $input: UpdateTransactionInput!
+  $condition: ModelTransactionConditionInput
+) {
+  updateTransaction(input: $input, condition: $condition) {
+    id
+    account {
+      id
+      fname
+      sname
+      email
+      phone
+      bname
+      bcity
+      transactions {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    v1
+    v2
+    v3
+    v4
+    v5
+    v6
+    v7
+    v8
+    v9
+    v10
+    v11
+    v12
+    v13
+    v14
+    v15
+    v16
+    v17
+    v18
+    v19
+    v20
+    v21
+    v22
+    v23
+    v24
+    v25
+    v26
+    v27
+    v28
+    amount
+    time
+    prob
+    pred
+    createdAt
+    updatedAt
+    accountTransactionsId
+  }
+}
+mutation DeleteTransaction(
+  $input: DeleteTransactionInput!
+  $condition: ModelTransactionConditionInput
+) {
+  deleteTransaction(input: $input, condition: $condition) {
+    id
+    account {
+      id
+      fname
+      sname
+      email
+      phone
+      bname
+      bcity
+      transactions {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    v1
+    v2
+    v3
+    v4
+    v5
+    v6
+    v7
+    v8
+    v9
+    v10
+    v11
+    v12
+    v13
+    v14
+    v15
+    v16
+    v17
+    v18
+    v19
+    v20
+    v21
+    v22
+    v23
+    v24
+    v25
+    v26
+    v27
+    v28
+    amount
+    time
+    prob
+    pred
+    createdAt
+    updatedAt
+    accountTransactionsId
+  }
+}

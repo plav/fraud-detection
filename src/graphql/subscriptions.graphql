@@ -1,0 +1,325 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateAccount {
+  onCreateAccount {
+    id
+    fname
+    sname
+    email
+    phone
+    bname
+    bcity
+    transactions {
+      items {
+        id
+        v1
+        v2
+        v3
+        v4
+        v5
+        v6
+        v7
+        v8
+        v9
+        v10
+        v11
+        v12
+        v13
+        v14
+        v15
+        v16
+        v17
+        v18
+        v19
+        v20
+        v21
+        v22
+        v23
+        v24
+        v25
+        v26
+        v27
+        v28
+        amount
+        time
+        prob
+        pred
+        createdAt
+        updatedAt
+        accountTransactionsId
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateAccount {
+  onUpdateAccount {
+    id
+    fname
+    sname
+    email
+    phone
+    bname
+    bcity
+    transactions {
+      items {
+        id
+        v1
+        v2
+        v3
+        v4
+        v5
+        v6
+        v7
+        v8
+        v9
+        v10
+        v11
+        v12
+        v13
+        v14
+        v15
+        v16
+        v17
+        v18
+        v19
+        v20
+        v21
+        v22
+        v23
+        v24
+        v25
+        v26
+        v27
+        v28
+        amount
+        time
+        prob
+        pred
+        createdAt
+        updatedAt
+        accountTransactionsId
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteAccount {
+  onDeleteAccount {
+    id
+    fname
+    sname
+    email
+    phone
+    bname
+    bcity
+    transactions {
+      items {
+        id
+        v1
+        v2
+        v3
+        v4
+        v5
+        v6
+        v7
+        v8
+        v9
+        v10
+        v11
+        v12
+        v13
+        v14
+        v15
+        v16
+        v17
+        v18
+        v19
+        v20
+        v21
+        v22
+        v23
+        v24
+        v25
+        v26
+        v27
+        v28
+        amount
+        time
+        prob
+        pred
+        createdAt
+        updatedAt
+        accountTransactionsId
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateTransaction {
+  onCreateTransaction {
+    id
+    account {
+      id
+      fname
+      sname
+      email
+      phone
+      bname
+      bcity
+      transactions {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    v1
+    v2
+    v3
+    v4
+    v5
+    v6
+    v7
+    v8
+    v9
+    v10
+    v11
+    v12
+    v13
+    v14
+    v15
+    v16
+    v17
+    v18
+    v19
+    v20
+    v21
+    v22
+    v23
+    v24
+    v25
+    v26
+    v27
+    v28
+    amount
+    time
+    prob
+    pred
+    createdAt
+    updatedAt
+    accountTransactionsId
+  }
+}
+subscription OnUpdateTransaction {
+  onUpdateTransaction {
+    id
+    account {
+      id
+      fname
+      sname
+      email
+      phone
+      bname
+      bcity
+      transactions {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    v1
+    v2
+    v3
+    v4
+    v5
+    v6
+    v7
+    v8
+    v9
+    v10
+    v11
+    v12
+    v13
+    v14
+    v15
+    v16
+    v17
+    v18
+    v19
+    v20
+    v21
+    v22
+    v23
+    v24
+    v25
+    v26
+    v27
+    v28
+    amount
+    time
+    prob
+    pred
+    createdAt
+    updatedAt
+    accountTransactionsId
+  }
+}
+subscription OnDeleteTransaction {
+  onDeleteTransaction {
+    id
+    account {
+      id
+      fname
+      sname
+      email
+      phone
+      bname
+      bcity
+      transactions {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    v1
+    v2
+    v3
+    v4
+    v5
+    v6
+    v7
+    v8
+    v9
+    v10
+    v11
+    v12
+    v13
+    v14
+    v15
+    v16
+    v17
+    v18
+    v19
+    v20
+    v21
+    v22
+    v23
+    v24
+    v25
+    v26
+    v27
+    v28
+    amount
+    time
+    prob
+    pred
+    createdAt
+    updatedAt
+    accountTransactionsId
+  }
+}

@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@aws-amplify/ui-angular/theme.css';
+/* You can add global styles to this file, and also import other style files */
+@import "ag-grid-community/dist/styles/ag-grid.css";
+@import "ag-grid-community/dist/styles/ag-theme-balham-dark.css";
+
+
+body{
+    background-color: rgb(24, 16, 16);
+}
