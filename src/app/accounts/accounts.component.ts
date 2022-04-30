@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APIService, Account} from './../API.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { AgGridAngular } from 'ag-grid-angular';
 
 @Component({
   selector: 'app-accounts',
@@ -12,17 +13,8 @@ import { Router } from '@angular/router';
 export class AccountsComponent implements OnInit {
 
 
-  columnDefs =[
-    { headerName: "ID", field: "id", filter: true, sortable: true, resizable: true},
-    { headerName: "First name", field: "fname", filter: true, sortable: true, resizable: true},
-    { headerName: "Second name", field: "sname", filter: true, sortable: true, resizable: true},
-    { headerName: "Email", field: "email", filter: true, resizable: true},
-    { headerName: "Phone", field: "phone", filter: true},
-    { headerName: "Bank City", field: "bcity", filter: true, sortable: true, resizable: true},
-    { headerName: "Bank Name", field: "bname", filter: true, sortable: true, resizable: true}
-  ];
 
-  columnDefs2 =[
+  columnDefs =[
     { headerName: "ID", field: "id"},
     { headerName: "First name", field: "fname"},
     { headerName: "Second name", field: "sname"},
@@ -61,25 +53,6 @@ export class AccountsComponent implements OnInit {
     });
   }
 
-  ngOnDestroy() {
-    if(this.subscription) {
-      this.subscription.unsubscribe();
-    }
-    this.subscription = null;
-  }
-
-  public onCreate(account: Account) {
-    this.api
-      .CreateAccount(account)
-      .then((event) => {
-        console.log('item created!');
-        this.createForm.reset();
-      })
-      .catch((e) => {
-        console.log('error creating account...', e);
-      });
-  } 
-
    /**
    * Check if the router url contains the specified route
    *
@@ -90,5 +63,7 @@ export class AccountsComponent implements OnInit {
     hasRoute(route: string) {
       return this.router.url.includes(route);
     }
+
+    onRowClicked(event: any) { console.log('row', event); }
 
 }

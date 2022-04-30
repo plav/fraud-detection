@@ -1,32 +1,22 @@
-
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+
+<!--routerLink="/account"-->
 
 <div>
     <ul class="a">
         <li>Accounts page</li>
         <li>Use search and sort on the table to help find what you are looking for</li>
-      </ul>
+        <li>Click on any account to view their page</li>
+    </ul>
     <ag-grid-angular 
-        style="width: calc(75%); height: 200px;"
+        style="width: calc(75%); height: 500px;"
         class="ag-theme-balham-dark center"
         [rowData]="accounts" 
         [columnDefs]="columnDefs"
         rowSelection='single'
-    >
-    </ag-grid-angular>
-    <br>
-    <ul class="a">
-        <li>Click on any account to view their page</li>
-      </ul>
-    <ag-grid-angular 
-        style="width: calc(75%); height: 200px;"
-        class="ag-theme-balham-dark center"
-        [rowData]="accounts" 
-        routerLink="/account"
-        [columnDefs]="columnDefs2"
-        rowSelection='single'
+        (rowClicked)='onRowClicked($event)' 
+        [pagination]="true"
     >
     </ag-grid-angular>
 </div>
