@@ -64,6 +64,8 @@ export class AccountsComponent implements OnInit {
       return this.router.url.includes(route);
     }
 
-    onRowClicked(event: any) { console.log('row', event); }
+    onRowClicked(event: any){
+      console.log(event.data.id); 
+    }
 
 }
