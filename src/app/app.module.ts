@@ -13,7 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { RouterModule } from '@angular/router';
-import { AccountComponent } from './account/account.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { NavComponent } from './nav/nav.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -32,15 +31,11 @@ var routes: any = [
   {
     path: 'transactions',
     component: TransactionsComponent
-  },
-  {
-    path: 'account',
-    component: AccountComponent
   }
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AccountsComponent, TransactionsComponent, AccountComponent, NavComponent, PriceComponent],
+  declarations: [AppComponent, HomeComponent, AccountsComponent, TransactionsComponent, NavComponent, PriceComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

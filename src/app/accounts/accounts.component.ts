@@ -78,11 +78,4 @@ export class AccountsComponent implements OnInit {
       console.log(event.data.id); 
       this.str= event.data.id.toString();
     } 
-    get loginFormModalEmail() {
-      return this.validatingForm.get('loginFormModalEmail');
-    }
-  
-    get loginFormModalPassword() {
-      return this.validatingForm.get('loginFormModalPassword');
-    }
 }

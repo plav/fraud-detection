@@ -11,6 +11,8 @@ import { AgGridAngular } from 'ag-grid-angular';
   styleUrls: ['./transactions.component.css']
 })
 export class TransactionsComponent implements OnInit {
+  str!: string; 
+  str2!: string; 
 
 
   columnDefs =[
@@ -78,6 +80,10 @@ export class TransactionsComponent implements OnInit {
         return this.router.url.includes(route);
       }
   
-      onRowClicked(event: any) { console.log('row', event); }
+      onRowClicked(event: any) { 
+        console.log('row', event); 
+        this.str= event.data.id.toString();
+        this.str2= event.data.transactionAccountId.toString();
+      }
   
   }
