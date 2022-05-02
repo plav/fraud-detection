@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import * as myGlobals from '../globals'; //<==== this one (**Updated**)
 import { ValueCache } from 'ag-grid-community';
+import { newArray } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -50,7 +51,13 @@ export class AccountsComponent implements OnInit {
   private subscription: Subscription | null = null;
 
   public helloString: string="hello " + myGlobals.sep + " there";
-  str!: string; 
+  id!: string; 
+  fname!: string;
+  sname!: string;
+  email!: string;
+  phone!: string;
+  bname!: string;
+  bcity!: string;
   
   async ngOnInit() {
     this.api.ListAccounts().then(event =>  {
@@ -75,7 +82,23 @@ export class AccountsComponent implements OnInit {
     }    
 
     onRowClicked(event: any){
-      console.log(event.data.id); 
-      this.str= event.data.id.toString();
+      this.id= event.data.id.toString();
+      this.fname = event.data.fname.toString()
+      this.sname = event.data.sname.toString()
+      this.email= event.data.email.toString()
+      this.phone= event.data.phone.toString()
+      this.bname= event.data.bname.toString()
+      this.bcity= event.data.bcity.toString()
     } 
+
+
+    onButtonClicked(){
+      console.log(this.id)
+      console.log(this.fname)
+      console.log(this.sname)
+      console.log(this.email)
+      console.log(this.phone)
+      console.log(this.bname)
+      console.log(this.bcity)
+    }
 }

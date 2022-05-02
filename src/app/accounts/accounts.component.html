@@ -9,7 +9,7 @@
 Click on any row to select an account then click the button for more details
 Click add to add a new account">Accounts:</a>
   </p>
-  <h5 class="move">Account selected: {{str}}</h5>
+  <h5 class="move">Account selected: {{id}}</h5>
     <ag-grid-angular 
     style="width: calc(75%); height: 400px;"
     class="ag-theme-balham-dark center"
@@ -23,7 +23,7 @@ Click add to add a new account">Accounts:</a>
   </ag-grid-angular>
   <br>
   <div id="mymain">
-    <div> <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
+    <div> <button (click)="onButtonClicked()" type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
     (click)="frame.show()" mdbWavesEffect>View selected account</button></div>
     <div> <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
     (click)="frame.show()" mdbWavesEffect>Add new</button></div>
@@ -43,50 +43,103 @@ Click add to add a new account">Accounts:</a>
     display: flex;
   }
 
+  #mymain2 {
+    width: 50%;
+    height: 40px;
+    display: flex;
+  }
+
+  .modal-lg {
+      max-width: 600px;
+  }
+
   #mymain div {
     padding:5px;
   }
+
+  #mymain2 div {
+    padding:2px;
+  }
+
+  .marGin{
+    margin-left: 10px;
+    margin-right: 50px;
+  }
+
+  .modal-content {
+    background: #282828 !important;
+    color: white;
+}
+
+.button1 {
+  background-color: white; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button2{
+  margin-left: 95% ;
+  margin-bottom: 2px;
+}
+
+
 </style>
 
 <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
   aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="modal-header">
+        <h3 class="modal-title w-100 font-weight-bold">ID: {{id}}</h3>
+        <button type="button" class="close pull-right button1" aria-label="Close" (click)="frame.hide()"
+        data-mdb-toggle="tooltip" title="
+        Click to close window"
+        ></button>
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
-          <input type="email" id="defaultForm-email" class="form-control"
-            mdbInput mdbValidate>
-          <label for="defaultForm-email">Your email</label>
-          <mdb-error>
-            Input invalid
-          </mdb-error>
-          <mdb-success>
-            Input
-            valid
-          </mdb-success>
-        </div>
-        <div class="md-form mb-4">
-          <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
-          <input type="password" id="defaultForm-pass" 
-            class="form-control" mdbInput mdbValidate>
-          <label for="defaultForm-pass">Your password</label>
-          <mdb-error>
-            Input invalid
-          </mdb-error>
-          <mdb-success>
-            Input valid
-          </mdb-success>
-        </div>
+      <a href="accounts" data-mdb-toggle="tooltip" title="
+      To update fill in the textbox and hit submit.
+To delete account simply hit the delete button">Need help?</a>
+  <br>
+      <div id="mymain2">
+        <h6 class="modal-title w-100 font-weight-bold marGin">First name: {{fname}}</h6>
+        <h6 class="modal-title w-100 font-weight-bold">Second name: {{sname}}</h6>
       </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Login</button>
+      <div id="mymain2">
+        <input type="email" class="form-control marGin" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter first name">
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter second name">
+      </div>
+      <div id="mymain2">
+        <h6 class="modal-title w-100 font-weight-bold marGin">Email: {{email}}</h6>
+        <h6 class="modal-title w-100 font-weight-bold">Phone number: {{phone}}</h6>
+      </div>
+      <div id="mymain2">
+        <input type="email" class="form-control marGin" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email address">
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter phone number">
+      </div>
+      <div id="mymain2">
+        <h6 class="modal-title w-100 font-weight-bold marGin">Bank name: {{bname}}</h6>
+        <h6 class="modal-title w-100 font-weight-bold">Bank city: {{bcity}}</h6>
+      </div>
+      <div id="mymain2">
+        <input type="email" class="form-control marGin" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter bank name">
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter bank city">
+      </div>
+      <div id="mymain2">
+        <button mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect>Submit</button>
+        <button mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect>Delete</button>
+      </div>
+      <div class="modal-footer">
+        <div id="mymain">
+            <p class="marGin">Transaction</p>
+            <p>Transaction</p>
+        </div>
       </div>
     </div>
   </div>
