@@ -13,6 +13,7 @@
         style="width: calc(75%); height: 500px;"
         class="ag-theme-balham-dark center"
         [rowData]="transactions" 
+        [suppressDragLeaveHidesColumns]="true"
         [columnDefs]="columnDefs"
         rowSelection='single'
         (rowClicked)='onRowClicked($event)' 

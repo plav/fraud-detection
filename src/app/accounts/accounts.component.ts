@@ -1,9 +1,12 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { APIService, Account} from './../API.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
+import * as myGlobals from '../globals'; //<==== this one (**Updated**)
+import { ValueCache } from 'ag-grid-community';
+
 
 @Component({
   selector: 'app-accounts',
@@ -11,18 +14,18 @@ import { AgGridAngular } from 'ag-grid-angular';
   styleUrls: ['./accounts.component.css']
 })
 export class AccountsComponent implements OnInit {
-
-
-
+  validatingForm!: FormGroup;
+  
   columnDefs =[
-    { headerName: "ID", field: "id"},
-    { headerName: "First name", field: "fname"},
-    { headerName: "Second name", field: "sname"},
-    { headerName: "Email", field: "email"},
-    { headerName: "Phone", field: "phone"},
-    { headerName: "Bank City", field: "bcity"},
-    { headerName: "Bank Name", field: "bname"}
+    { headerName: "ID", field: "id", filter: true, sortable: true},
+    { headerName: "First name", field: "fname", filter: true, sortable: true},
+    { headerName: "Second name", field: "sname", filter: true, sortable: true},
+    { headerName: "Email", field: "email", filter: true, sortable: true},
+    { headerName: "Phone", field: "phone", filter: true, sortable: true},
+    { headerName: "Bank City", field: "bcity", filter: true, sortable: true},
+    { headerName: "Bank Name", field: "bname", filter: true, sortable: true}
   ];
+    
   public createForm: FormGroup;
 
   /* declare restaurants variable */
@@ -38,10 +41,17 @@ export class AccountsComponent implements OnInit {
       bcity: ['', Validators.required],
       transactions: ['', Validators.required],
     });
+    this.validatingForm = new FormGroup({
+      loginFormModalEmail: new FormControl('', Validators.email),
+      loginFormModalPassword: new FormControl('', Validators.required)
+    });
   }
 
   private subscription: Subscription | null = null;
 
+  public helloString: string="hello " + myGlobals.sep + " there";
+  str!: string; 
+  
   async ngOnInit() {
     this.api.ListAccounts().then(event =>  {
       this.accounts = (event.items as Array<Account>);
@@ -62,10 +72,17 @@ export class AccountsComponent implements OnInit {
    */
     hasRoute(route: string) {
       return this.router.url.includes(route);
-    }
+    }    
 
     onRowClicked(event: any){
       console.log(event.data.id); 
+      this.str= event.data.id.toString();
+    } 
+    get loginFormModalEmail() {
+      return this.validatingForm.get('loginFormModalEmail');
     }
-
+  
+    get loginFormModalPassword() {
+      return this.validatingForm.get('loginFormModalPassword');
+    }
 }

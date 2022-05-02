@@ -15,6 +15,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { RouterModule } from '@angular/router';
 import { AccountComponent } from './account/account.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { NavComponent } from './nav/nav.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 var routes: any = [
@@ -37,12 +39,13 @@ var routes: any = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AccountsComponent, TransactionsComponent, AccountComponent],
+  declarations: [AppComponent, HomeComponent, AccountsComponent, TransactionsComponent, AccountComponent, NavComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
     AmplifyAuthenticatorModule,
+    MDBBootstrapModule.forRoot(),
     AgGridModule.withComponents([]),
 
     /* configuring form modules */

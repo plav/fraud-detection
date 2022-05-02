@@ -1,28 +1,3 @@
-img-container{
-    width: 300px;
-    height: 200px;
-    position: absolute;
-    left: 42%;
-    top: 32%;
-}
-.img-container img{
-    width: 100%;
-    height: 100%;
-}
-
-.img-prev{
-    margin-top: 10px;
-    text-align: center;
-}
-
-.img-slide{
-    display: inline-block ;
-    width: 24%;
-    margin: 0 1px;
-    cursor: pointer;
-    opacity: 50%;
-}
-
 .container {
     max-width: 960px;
   }
@@ -91,4 +66,5 @@ img-container{
     .flex-md-equal > * {
       flex: 1;
     }
-  }
+}
+ 
