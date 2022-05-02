@@ -1,68 +1,77 @@
-  <div class="bg-light me-md-3 pt-3 px-3 pt-md-0 px-md-5 overflow-hidden">
-    <amplify-authenticator>
-      <ng-template
-        amplifySlot="authenticated"
-        let-user="user"
-        let-signOut="signOut"
-      >
-        <h2 class="display-5">Welcome {{ user.username }}</h2>
+<div class="bg-light me-md-3 pt-3 px-3 pt-md-0 px-md-5 overflow-hidden">
+  <amplify-authenticator>
+    <ng-template
+      amplifySlot="authenticated"
+      let-user="user"
+      let-signOut="signOut"
+    >
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome back!</h1>
+      <p class="lead">Click to continue too access the rest of site and confirm you have compled your training</p>
+      <hr class="my-4">
+      <p>User: {{ user.username }}</p>
+      <div class="flex-parent jc-center">
         <button class="btn btn-dark" (click)="signOut(); logout();" >Sign Out</button>
-        <p class="lead">Have you completed your training if so continue</p>
+      </div>
+      <br>
+      <div class="flex-parent jc-center">
         <button class="btn btn-dark" (click)="login()" >Continue</button>
-      </ng-template>
-    </amplify-authenticator>
-  </div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Fraud detection</h2>
-        <p class="lead">Fraudualent banking transaction detection</p>
       </div>
-      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
     </div>
-    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Connect</h2>
-          <p class="lead">Easily contact victims or set our system to do it for you</p>
-        </div>
-        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-  </div>
+    </ng-template>
+  </amplify-authenticator>
+</div>
 
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+<div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+  <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="my-3 p-3">
+      <h2 class="display-5">Fraud detection</h2>
+      <p class="lead">Fraudualent banking transaction detection</p>
+    </div>
+    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+  </div>
+  <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
       <div class="my-3 py-3">
-        <h2 class="display-5">AI detection</h2>
-        <p class="lead">Our system uses modern technologies and machine learning to detect fraud</p>
+        <h2 class="display-5">Connect</h2>
+        <p class="lead">Easily contact victims or set our system to do it for you</p>
       </div>
       <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
     </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Help us</h2>
-        <p class="lead">Your feedback will improve our accuracy</p>
-      </div>
-      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
+</div>
 
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">The Cloud</h2>
-        <p class="lead">Our system uses cloud datbases to safely store data</p>
-      </div>
-      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+<div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+  <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-3 py-3">
+      <h2 class="display-5">AI detection</h2>
+      <p class="lead">Our system uses modern technologies and machine learning to detect fraud</p>
     </div>
-    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">SaaS</h2>
-          <p class="lead">Our system is live and running on the web</p>
-        </div>
-        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
+    <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
   </div>
+  <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="my-3 p-3">
+      <h2 class="display-5">Help us</h2>
+      <p class="lead">Your feedback will improve our accuracy</p>
+    </div>
+    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+  </div>
+</div>
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+  <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="my-3 p-3">
+      <h2 class="display-5">The Cloud</h2>
+      <p class="lead">Our system uses cloud datbases to safely store data</p>
+    </div>
+    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+  </div>
+  <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">SaaS</h2>
+        <p class="lead">Our system is live and running on the web</p>
+      </div>
+      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+    </div>
+</div>
 
 
   <!-- Footer -->
@@ -85,22 +94,23 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Products
+            Tools
           </h6>
           <p>
-            <a href="#!" class="text-reset">Angular</a>
+            <i class="fas fa-envelope me-3"></i>
+            GraphQL
           </p>
           <p>
-            <a href="#!" class="text-reset">AWS Amplify</a>
+            <i class="fas fa-envelope me-3"></i>
+            SageMaker
           </p>
           <p>
-            <a href="#!" class="text-reset">GraphQL</a>
+            <i class="fas fa-envelope me-3"></i>
+            AWS Amplify
           </p>
           <p>
-            <a href="#!" class="text-reset">SageMaker</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">R Studio</a>
+            <i class="fas fa-envelope me-3"></i>
+            Angular
           </p>
         </div>
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -109,19 +119,16 @@
             Useful links
           </h6>
           <p>
-            <a href="#!" class="text-reset">Pricing</a>
+            <a href="#!" routerLink="/price" class="text-reset">Pricing</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Settings</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Orders</a>
+            <a href="#!" class="text-reset">Training</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Help</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Training/Documentation</a>
+            <a href="#!" class="text-reset">Documentation</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -180,30 +187,6 @@
 
 
 
-
-
-
-
-
-
-
-      <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-
 <style>
     .button{
         background-color: #FFFFFF;
@@ -234,32 +217,32 @@
 
 
 <style>
-    ul.a {
-        list-style-type: circle;
-        background-color: #FFFFFF;
-        border: 1px solid rgb(209,213,219);
-        border: 3px dashed #bbb;
-        box-sizing: border-box;
-        color: #070707;
-        font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-        font-size: .875rem;
-        font-weight: 600;
-        line-height: 1.25rem;
-        padding: .75rem 2rem;
-        text-align: left;
-        text-decoration: none #D1D5DB solid;
-        text-decoration-thickness: auto;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        cursor: pointer;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        background-color: rgb(249,250,251);
-        outline: 2px solid transparent;
-        outline-offset: 2px;
-        box-shadow: none;
-        margin: 10px;
-    }
+  ul.a {
+      list-style-type: circle;
+      background-color: #FFFFFF;
+      border: 1px solid rgb(209,213,219);
+      border: 3px dashed #bbb;
+      box-sizing: border-box;
+      color: #070707;
+      font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+      font-size: .875rem;
+      font-weight: 600;
+      line-height: 1.25rem;
+      padding: .75rem 2rem;
+      text-align: left;
+      text-decoration: none #D1D5DB solid;
+      text-decoration-thickness: auto;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      background-color: rgb(249,250,251);
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      box-shadow: none;
+      margin: 10px;
+  }
 </style>
 
 <style>

@@ -10,6 +10,14 @@ img-container{
     height: 100%;
 }
 
+.flex-parent {
+    display: flex;
+  }
+  
+  .jc-center {
+    justify-content: center;
+  }
+
 .img-prev{
     margin-top: 10px;
     text-align: center;

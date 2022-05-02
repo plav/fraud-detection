@@ -17,6 +17,7 @@ import { AccountComponent } from './account/account.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { NavComponent } from './nav/nav.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { PriceComponent } from './price/price.component';
 
 
 var routes: any = [
@@ -39,7 +40,7 @@ var routes: any = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AccountsComponent, TransactionsComponent, AccountComponent, NavComponent],
+  declarations: [AppComponent, HomeComponent, AccountsComponent, TransactionsComponent, AccountComponent, NavComponent, PriceComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

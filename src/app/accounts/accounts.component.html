@@ -3,14 +3,15 @@
 
 <!--<h1>{{}}</h1>-->
 
-<div>
+<div class="jumbotron jumbotron-fluid">
+  <p>Accounts</p>
     <ul class="a">
-        <li>Accounts page</li>
-        <li>Use search and sort on the table to help find what you are looking for</li>
-        <li>Click on any account to view their page</li>
+        <li>Use search and sort on the table to help find what you are looking for.</li>
+        <li>Click on any row to select it then click the button to update the account and view it's transactions</li>
+        <li>Click add to add an account</li>
     </ul>
     <ag-grid-angular 
-        style="width: calc(75%); height: 500px;"
+        style="width: calc(75%); height: 400px;"
         class="ag-theme-balham-dark center"
         [rowData]="accounts" 
         [columnDefs]="columnDefs"
@@ -21,10 +22,11 @@
     >
     </ag-grid-angular>
 </div>
-<h1>{{str}}</h1>
+<h3>Account selected: {{str}}</h3>
 
 <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
-  (click)="frame.show()" mdbWavesEffect>Launch Modal</button>
+  (click)="frame.show()" mdbWavesEffect>Account</button>
+
 <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
   aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -94,6 +96,8 @@
         margin: 5px;
     }
 </style>
+
+
 
 <style>
   .center {
