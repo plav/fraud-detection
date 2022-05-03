@@ -79,7 +79,39 @@ export class AccountsComponent implements OnInit {
    */
     hasRoute(route: string) {
       return this.router.url.includes(route);
-    }    
+    }  
+    
+    updateForm = new FormGroup({
+      fnamef:new FormControl('',[Validators.required]),
+      snamef:new FormControl('',[Validators.required]),
+      emailf:new FormControl('',[Validators.required,Validators.email]),
+      pnumf:new FormControl('',[Validators.required]),
+      bnamef:new FormControl('',[Validators.required]),
+      bcityf:new FormControl('',[Validators.required])
+    })
+
+    updateAccount(){
+      console.log(this.updateForm.value)
+    }
+
+    get fnam(){
+      return this.updateForm.get('fnamef');
+    }
+    get snam(){
+      return this.updateForm.get('snamef');
+    }
+    get emai(){
+      return this.updateForm.get('emailf');
+    }
+    get pnu(){
+      return this.updateForm.get('pnumf');
+    }
+    get bnam(){
+      return this.updateForm.get('bnamef');
+    }
+    get bcit(){
+      return this.updateForm.get('bcityf');
+    }
 
     onRowClicked(event: any){
       this.id= event.data.id.toString();

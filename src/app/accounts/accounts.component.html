@@ -25,7 +25,7 @@ Click add to add a new account">Accounts:</a>
   <div id="mymain">
     <div> <button (click)="onButtonClicked()" type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
     (click)="frame.show()" mdbWavesEffect>View selected account</button></div>
-    <div> <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
+    <div> <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal2" data-target="#basicExample2"
     (click)="frame.show()" mdbWavesEffect>Add new</button></div>
   </div>
 </div>
@@ -92,58 +92,72 @@ Click add to add a new account">Accounts:</a>
 
 </style>
 
-<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
-  aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title w-100 font-weight-bold">ID: {{id}}</h3>
-        <button type="button" class="close pull-right button1" aria-label="Close" (click)="frame.hide()"
-        data-mdb-toggle="tooltip" title="
-        Click to close window"
-        ></button>
-      </div>
-      <a href="accounts" data-mdb-toggle="tooltip" title="
-      To update fill in the textbox and hit submit.
-To delete account simply hit the delete button">Need help?</a>
-  <br>
-      <div id="mymain2">
-        <h6 class="modal-title w-100 font-weight-bold marGin">First name: {{fname}}</h6>
-        <h6 class="modal-title w-100 font-weight-bold">Second name: {{sname}}</h6>
-      </div>
-      <div id="mymain2">
-        <input type="email" class="form-control marGin" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter first name">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter second name">
-      </div>
-      <div id="mymain2">
-        <h6 class="modal-title w-100 font-weight-bold marGin">Email: {{email}}</h6>
-        <h6 class="modal-title w-100 font-weight-bold">Phone number: {{phone}}</h6>
-      </div>
-      <div id="mymain2">
-        <input type="email" class="form-control marGin" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email address">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter phone number">
-      </div>
-      <div id="mymain2">
-        <h6 class="modal-title w-100 font-weight-bold marGin">Bank name: {{bname}}</h6>
-        <h6 class="modal-title w-100 font-weight-bold">Bank city: {{bcity}}</h6>
-      </div>
-      <div id="mymain2">
-        <input type="email" class="form-control marGin" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter bank name">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter bank city">
-      </div>
-      <div id="mymain2">
-        <button mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect>Submit</button>
-        <button mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect>Delete</button>
-      </div>
-      <div class="modal-footer">
-        <div id="mymain">
-            <p class="marGin">Transaction</p>
-            <p>Transaction</p>
+
+<form [formGroup]="updateForm" (ngSubmit)="updateAccount()">
+  <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title w-100 font-weight-bold">ID: {{id}}</h3>
+            <button type="button" class="close pull-right button1" aria-label="Close" (click)="frame.hide()"
+              data-mdb-toggle="tooltip" title="
+              Click to close window"
+            ></button>
+          </div>
+          <a href="accounts" data-mdb-toggle="tooltip" title="
+          To update fill in the textbox and hit submit.
+          To delete account simply hit the delete button">Need help?</a>
+          <br>
+          <div id="mymain2">
+            <h6 class="modal-title w-100 font-weight-bold marGin">First: name {{fname}}</h6>
+            <h6 class="modal-title w-100 font-weight-bold">Second name: {{sname}}</h6>
+          </div>
+          <div id="mymain2">
+            <h6 class="modal-title w-100 font-weight-bold marGin">Email: {{email}}</h6>
+            <h6 class="modal-title w-100 font-weight-bold">Phone number: {{phone}}</h6>
+          </div>
+          <div id="mymain2">
+            <h6 class="modal-title w-100 font-weight-bold marGin">Bank name: {{bname}}</h6>
+            <h6 class="modal-title w-100 font-weight-bold">Bank city: {{bcity}}</h6>
+          </div>
+          <form [formGroup]="updateForm" (ngSubmit)="updateAccount()">
+            <input type="email" class="form-control marGin" id="fname" name="fname" placeholder="Enter first name" formControlName="fnamef">
+            <br>
+            <span *ngIf="fnam && fnam.invalid">This is invalid</span>
+            <br>
+            <input type="email" class="form-control" id="sname" name="sname" aria-describedby="emailHelp" placeholder="Enter second name" formControlName="snamef">
+            <br>
+            <span *ngIf="snam && snam.invalid">This is invalid</span>
+            <br>
+            <input type="email" class="form-control marGin" id="email" name="email" placeholder="Enter email address" formControlName="emailf">
+            <br>
+            <span *ngIf="emai && emai.invalid">This is invalid</span>
+            <br>
+            <input type="email" class="form-control" id="pnum" name="pnum" placeholder="Enter phone number" formControlName="pnumf">
+            <br>
+            <span *ngIf="pnu && pnu.invalid">This is invalid</span>
+            <br>
+            <input type="email" class="form-control marGin" id="bname" name="bname" aria-describedby="emailHelp" placeholder="Enter bank name" formControlName="bnamef">
+            <br>
+            <span *ngIf="bnam && bnam.invalid">This is invalid</span>
+            <br>
+            <input type="email" class="form-control" id="bcity" name="bcity" placeholder="Enter bank city" formControlName="bcityf">
+            <br>
+            <span *ngIf="bcit && bcit.invalid">This is invalid</span>
+            <br>
+            <div id="mymain2">
+              <button mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect [disabled]="updateForm.invalid">Update</button>
+            </div>
+          </form>
+          <div class="modal-footer">
+            <div id="mymain">
+              <p class="marGin">Transaction</p>
+              <p>Transaction</p>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-
   
   <style>
     .button{

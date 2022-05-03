@@ -9,7 +9,7 @@ import { PriceComponent } from './price/price.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'price',
