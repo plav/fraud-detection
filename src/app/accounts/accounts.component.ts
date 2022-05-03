@@ -7,6 +7,8 @@ import { AgGridAngular } from 'ag-grid-angular';
 import * as myGlobals from '../globals'; //<==== this one (**Updated**)
 import { ValueCache } from 'ag-grid-community';
 import { newArray } from '@angular/compiler/src/util';
+import { v4 as uuid } from "uuid";
+
 
 
 @Component({
@@ -58,11 +60,15 @@ export class AccountsComponent implements OnInit {
   phone!: string;
   bname!: string;
   bcity!: string;
+
+  addedAccount!: string;
   
   async ngOnInit() {
     this.api.ListAccounts().then(event =>  {
       this.accounts = (event.items as Array<Account>);
     });
+
+    this.addedAccount = " ";
   
     this.subscription = <Subscription>this.api.OnCreateAccountListener.subscribe( (event: any) => {
       const newAccount = event.value.data.onCreateAccount;
@@ -91,7 +97,14 @@ export class AccountsComponent implements OnInit {
     })
 
     updateAccount(){
+      console.log(this.id)
       console.log(this.updateForm.value)
+    }
+
+    addAccount(){
+        this.addedAccount = uuid();
+        console.log(this.addedAccount);
+        console.log(this.updateForm.value)
     }
 
     get fnam(){

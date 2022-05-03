@@ -36,6 +36,10 @@ The ID for the account will be displayed">Add a new account:</a>
 <form [formGroup]="updateForm" (ngSubmit)="updateAccount()">
 
 <form class="form-style-7" [formGroup]="updateForm" (ngSubmit)="updateAccount()">
+  <li>
+    <label for="fname">ID</label>
+    <input type="text" class="form-control" id="fname" name="fname" placeholder={{addedAccount}} formControlName="fnamef" maxlength="100">
+  </li>
     <li>
       <label for="fname">First name</label>
       <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name" formControlName="fnamef" maxlength="100">
@@ -53,7 +57,7 @@ The ID for the account will be displayed">Add a new account:</a>
     </li>
     <li>
       <label for="num">Phone number</label>
-      <input type="number" class="form-control" id="pnum" name="pnum" placeholder="Enter phone number" formControlName="pnumf" maxlength="100">
+      <input type="text" class="form-control" id="pnum" name="pnum" placeholder="Enter phone number" formControlName="pnumf" maxlength="100">
       <span *ngIf="pnu && pnu.invalid">This is invalid</span>
     </li>
     <li>
@@ -67,10 +71,10 @@ The ID for the account will be displayed">Add a new account:</a>
       <span *ngIf="bcit && bcit.invalid">This is invalid</span>
     </li>
     <div id="mymain2">
-      <button mdbBtn color="default" class="waves-light button3 justify-content-center" mdbWavesEffect [disabled]="updateForm.invalid">Add</button>
+      <button (click)="addAccount()" mdbBtn color="default" class="waves-light button3 justify-content-center" mdbWavesEffect [disabled]="updateForm.invalid">Add</button>
     </div>
   </form>
-  <h5 class="move">Account created with ID: {{id}}</h5>
+  <h5 class="move">Account created with ID: {{addedAccount}}</h5>
 
 <style type="text/css">
   .form-style-7{
@@ -95,7 +99,6 @@ The ID for the account will be displayed">Add a new account:</a>
   }
   .form-style-7 input[type="text"],
   .form-style-7 input[type="email"],
-  .form-style-7 input[type="number"],
   .form-style-7 textarea,
   .form-style-7 select 
   {
@@ -114,7 +117,6 @@ The ID for the account will be displayed">Add a new account:</a>
   }
   .form-style-7 input[type="text"]:focus,
   .form-style-7 input[type="email"]:focus,
-  .form-style-7 input[type="number"]:focus,
   .form-style-7 textarea:focus,
   .form-style-7 select:focus 
   {
@@ -248,6 +250,11 @@ To delete account simply hit the delete button">Need help?</a>
           
   <form class="form-style-7" [formGroup]="updateForm" (ngSubmit)="updateAccount()">
       <li>
+        <label for="fname">ID</label>
+        <input type="text" class="form-control" id="fname" name="fname" placeholder={{id}} formControlName="fnamef" maxlength="100">
+        <span>Please select an account to edit from the table</span>
+      </li>
+      <li>
           <label for="fname">First name</label>
           <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name" formControlName="fnamef" maxlength="100">
           <span *ngIf="fnam && fnam.invalid">This is invalid</span>
@@ -264,7 +271,7 @@ To delete account simply hit the delete button">Need help?</a>
       </li>
       <li>
         <label for="num">Phone number</label>
-        <input type="number" class="form-control" id="pnum" name="pnum" placeholder="Enter phone number" formControlName="pnumf" maxlength="100">
+        <input type="text" class="form-control" id="pnum" name="pnum" placeholder="Enter phone number" formControlName="pnumf" maxlength="100">
         <span *ngIf="pnu && pnu.invalid">This is invalid</span>
       </li>
       <li>
@@ -278,7 +285,7 @@ To delete account simply hit the delete button">Need help?</a>
         <span *ngIf="bcit && bcit.invalid">This is invalid</span>
       </li>
       <div id="mymain2">
-        <button mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect [disabled]="updateForm.invalid">Update</button>
+        <button (click)="updateAccount()" mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect [disabled]="updateForm.invalid">Update</button>
       </div>
     </form>
     <button mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect [disabled]="updateForm.invalid">Delete</button>
