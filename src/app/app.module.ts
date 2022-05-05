@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
+import { Amplify } from 'aws-amplify';
 
 /* new form imports */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,7 +19,9 @@ import { NavComponent } from './nav/nav.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { PriceComponent } from './price/price.component';
 
+import awsconfig from '../aws-exports';
 
+Amplify.configure(awsconfig);
 var routes: any = [
   {
     path: '',

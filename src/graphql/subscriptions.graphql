@@ -33,7 +33,6 @@ subscription OnCreateTransaction {
     amount
     time
     prob
-    pred
     account {
       id
       fname
@@ -84,7 +83,6 @@ subscription OnUpdateTransaction {
     amount
     time
     prob
-    pred
     account {
       id
       fname
@@ -135,7 +133,6 @@ subscription OnDeleteTransaction {
     amount
     time
     prob
-    pred
     account {
       id
       fname

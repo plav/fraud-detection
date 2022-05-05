@@ -52,7 +52,6 @@ export class AccountsComponent implements OnInit {
 
   private subscription: Subscription | null = null;
 
-  public helloString: string="hello " + myGlobals.sep + " there";
   id!: string; 
   fname!: string;
   sname!: string;

@@ -50,8 +50,7 @@ export type CreateTransactionInput = {
   v28?: number | null;
   amount?: number | null;
   time?: string | null;
-  prob?: number | null;
-  pred?: number | null;
+  prob?: string | null;
   transactionAccountId?: string | null;
 };
 
@@ -86,8 +85,7 @@ export type ModelTransactionConditionInput = {
   v28?: ModelFloatInput | null;
   amount?: ModelFloatInput | null;
   time?: ModelStringInput | null;
-  prob?: ModelFloatInput | null;
-  pred?: ModelIntInput | null;
+  prob?: ModelStringInput | null;
   and?: Array<ModelTransactionConditionInput | null> | null;
   or?: Array<ModelTransactionConditionInput | null> | null;
   not?: ModelTransactionConditionInput | null;
@@ -145,18 +143,6 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null;
 };
 
-export type ModelIntInput = {
-  ne?: number | null;
-  eq?: number | null;
-  le?: number | null;
-  lt?: number | null;
-  ge?: number | null;
-  gt?: number | null;
-  between?: Array<number | null> | null;
-  attributeExists?: boolean | null;
-  attributeType?: ModelAttributeTypes | null;
-};
-
 export type ModelIDInput = {
   ne?: string | null;
   eq?: string | null;
@@ -206,8 +192,7 @@ export type Transaction = {
   v28?: number | null;
   amount?: number | null;
   time?: string | null;
-  prob?: number | null;
-  pred?: number | null;
+  prob?: string | null;
   account?: Account | null;
   createdAt: string;
   updatedAt: string;
@@ -259,8 +244,7 @@ export type UpdateTransactionInput = {
   v28?: number | null;
   amount?: number | null;
   time?: string | null;
-  prob?: number | null;
-  pred?: number | null;
+  prob?: string | null;
   transactionAccountId?: string | null;
 };
 
@@ -336,8 +320,7 @@ export type ModelTransactionFilterInput = {
   v28?: ModelFloatInput | null;
   amount?: ModelFloatInput | null;
   time?: ModelStringInput | null;
-  prob?: ModelFloatInput | null;
-  pred?: ModelIntInput | null;
+  prob?: ModelStringInput | null;
   and?: Array<ModelTransactionFilterInput | null> | null;
   or?: Array<ModelTransactionFilterInput | null> | null;
   not?: ModelTransactionFilterInput | null;
@@ -402,8 +385,7 @@ export type CreateTransactionMutation = {
   v28?: number | null;
   amount?: number | null;
   time?: string | null;
-  prob?: number | null;
-  pred?: number | null;
+  prob?: string | null;
   account?: {
     __typename: "Account";
     id: string;
@@ -454,8 +436,7 @@ export type UpdateTransactionMutation = {
   v28?: number | null;
   amount?: number | null;
   time?: string | null;
-  prob?: number | null;
-  pred?: number | null;
+  prob?: string | null;
   account?: {
     __typename: "Account";
     id: string;
@@ -506,8 +487,7 @@ export type DeleteTransactionMutation = {
   v28?: number | null;
   amount?: number | null;
   time?: string | null;
-  prob?: number | null;
-  pred?: number | null;
+  prob?: string | null;
   account?: {
     __typename: "Account";
     id: string;
@@ -597,8 +577,7 @@ export type GetTransactionQuery = {
   v28?: number | null;
   amount?: number | null;
   time?: string | null;
-  prob?: number | null;
-  pred?: number | null;
+  prob?: string | null;
   account?: {
     __typename: "Account";
     id: string;
@@ -651,8 +630,7 @@ export type ListTransactionsQuery = {
     v28?: number | null;
     amount?: number | null;
     time?: string | null;
-    prob?: number | null;
-    pred?: number | null;
+    prob?: string | null;
     account?: {
       __typename: "Account";
       id: string;
@@ -735,8 +713,7 @@ export type OnCreateTransactionSubscription = {
   v28?: number | null;
   amount?: number | null;
   time?: string | null;
-  prob?: number | null;
-  pred?: number | null;
+  prob?: string | null;
   account?: {
     __typename: "Account";
     id: string;
@@ -787,8 +764,7 @@ export type OnUpdateTransactionSubscription = {
   v28?: number | null;
   amount?: number | null;
   time?: string | null;
-  prob?: number | null;
-  pred?: number | null;
+  prob?: string | null;
   account?: {
     __typename: "Account";
     id: string;
@@ -839,8 +815,7 @@ export type OnDeleteTransactionSubscription = {
   v28?: number | null;
   amount?: number | null;
   time?: string | null;
-  prob?: number | null;
-  pred?: number | null;
+  prob?: string | null;
   account?: {
     __typename: "Account";
     id: string;
@@ -940,7 +915,6 @@ export class APIService {
           amount
           time
           prob
-          pred
           account {
             __typename
             id
@@ -1008,7 +982,6 @@ export class APIService {
           amount
           time
           prob
-          pred
           account {
             __typename
             id
@@ -1076,7 +1049,6 @@ export class APIService {
           amount
           time
           prob
-          pred
           account {
             __typename
             id
@@ -1228,7 +1200,6 @@ export class APIService {
           amount
           time
           prob
-          pred
           account {
             __typename
             id
@@ -1296,7 +1267,6 @@ export class APIService {
             amount
             time
             prob
-            pred
             account {
               __typename
               id
@@ -1431,7 +1401,6 @@ export class APIService {
           amount
           time
           prob
-          pred
           account {
             __typename
             id
@@ -1493,7 +1462,6 @@ export class APIService {
           amount
           time
           prob
-          pred
           account {
             __typename
             id
@@ -1555,7 +1523,6 @@ export class APIService {
           amount
           time
           prob
-          pred
           account {
             __typename
             id

@@ -34,8 +34,7 @@ type Transaction @model {
   v28: Float
   amount: Float
   time: String
-  prob: Float
-  pred: Int 
+  prob: String
   account: Account @hasOne
 }
 

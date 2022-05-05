@@ -20,6 +20,12 @@
           "appId": "d2mjvhmkmdinqr",
           "type": "manual"
         }
+      },
+      "function": {
+        "S3Trigger31b5736a": {
+          "deploymentBucketName": "amplify-amplifyfraud-dev-210839-deployment",
+          "s3Key": "amplify-builds/S3Trigger31b5736a-694c525757794275712f-build.zip"
+        }
       }
     }
   }

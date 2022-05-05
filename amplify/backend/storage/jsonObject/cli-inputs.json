@@ -1,0 +1,14 @@
+{
+  "resourceName": "jsonObject",
+  "policyUUID": "3a9fe20f",
+  "bucketName": "amplifyfraud47bd7f7c50d8482991d31567cf5c4fd0",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "S3Trigger31b5736a",
+  "groupAccess": {}
+}

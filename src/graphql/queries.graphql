@@ -33,7 +33,6 @@ query GetTransaction($id: ID!) {
     amount
     time
     prob
-    pred
     account {
       id
       fname
@@ -89,7 +88,6 @@ query ListTransactions(
       amount
       time
       prob
-      pred
       account {
         id
         fname

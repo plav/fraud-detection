@@ -36,7 +36,6 @@ mutation CreateTransaction(
     amount
     time
     prob
-    pred
     account {
       id
       fname
@@ -90,7 +89,6 @@ mutation UpdateTransaction(
     amount
     time
     prob
-    pred
     account {
       id
       fname
@@ -144,7 +142,6 @@ mutation DeleteTransaction(
     amount
     time
     prob
-    pred
     account {
       id
       fname
