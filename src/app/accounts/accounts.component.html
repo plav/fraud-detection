@@ -33,45 +33,47 @@ Click on any row to select an account then click the button for more details
 Fill in the details and click to add a new account
 The ID for the account will be displayed">Add a new account:</a>
 
-<form [formGroup]="updateForm" (ngSubmit)="updateAccount()">
+<br>
+<button (click)="idGenetate()" type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample" mdbWavesEffect>Generate ID</button></div>
 
-<form class="form-style-7" [formGroup]="updateForm" (ngSubmit)="updateAccount()">
+<form class="form-style-7" [formGroup]="addForm" (ngSubmit)="addAccount(addForm.value)">
   <li>
-    <label for="fname">ID</label>
-    <input type="text" class="form-control" id="fname" name="fname" placeholder={{addedAccount}} formControlName="fnamef" maxlength="100">
+    <label>{{addedAccount}}</label>
+    <input type="text" class="form-control" id="fname" name="fname" placeholder={{addedAccount}} formControlName="id" maxlength="100">
+    <span *ngIf="iD && iD.invalid">Please paste in the genetated ID to confirm you want to add account</span>
   </li>
     <li>
       <label for="fname">First name</label>
-      <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name" formControlName="fnamef" maxlength="100">
+      <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name" formControlName="fname" maxlength="100">
       <span *ngIf="fnam && fnam.invalid">This is invalid</span>
     </li>
     <li>
       <label for="sname">Second name</label>
-      <input type="text" class="form-control" id="sname" name="sname" placeholder="Enter second name" formControlName="snamef" maxlength="=100">
+      <input type="text" class="form-control" id="sname" name="sname" placeholder="Enter second name" formControlName="sname" maxlength="=100">
       <span *ngIf="snam && snam.invalid">This is invalid</span>
     </li>
     <li>
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" formControlName="emailf" maxlength="100">
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" formControlName="email" maxlength="100">
       <span *ngIf="emai && emai.invalid">This is invalid</span>
     </li>
     <li>
       <label for="num">Phone number</label>
-      <input type="text" class="form-control" id="pnum" name="pnum" placeholder="Enter phone number" formControlName="pnumf" maxlength="100">
+      <input type="text" class="form-control" id="pnum" name="pnum" placeholder="Enter phone number" formControlName="phone" maxlength="100">
       <span *ngIf="pnu && pnu.invalid">This is invalid</span>
     </li>
     <li>
       <label for="bname">Bank name</label>
-      <input type="text" class="form-control" id="bname" name="bname" aria-describedby="emailHelp" placeholder="Enter bank name" formControlName="bnamef">
+      <input type="text" class="form-control" id="bname" name="bname" aria-describedby="emailHelp" placeholder="Enter bank name" formControlName="bname">
       <span *ngIf="bnam && bnam.invalid">This is invalid</span>
     </li>
     <li>
       <label for="bcity">Bank city</label>
-      <input type="text" class="form-control" id="bcity" name="bcity" placeholder="Enter bank city" formControlName="bcityf" maxlength="100">
+      <input type="text" class="form-control" id="bcity" name="bcity" placeholder="Enter bank city" formControlName="bcity" maxlength="100">
       <span *ngIf="bcit && bcit.invalid">This is invalid</span>
     </li>
     <div id="mymain2">
-      <button (click)="addAccount()" mdbBtn color="default" class="waves-light button3 justify-content-center" mdbWavesEffect [disabled]="updateForm.invalid">Add</button>
+      <button mdbBtn color="default" class="waves-light button3 justify-content-center" type="submit" mdbWavesEffect [disabled]="addForm.invalid">Add</button>
     </div>
   </form>
   <h5 class="move">Account created with ID: {{addedAccount}}</h5>
@@ -217,8 +219,6 @@ The ID for the account will be displayed">Add a new account:</a>
 
 </style>
 
-
-<form [formGroup]="updateForm" (ngSubmit)="updateAccount()">
   <div mdbModal #frame="mdbModal" class="modal fade left modal-lg" id="frameModalTop" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog-centered" role="document">
@@ -248,47 +248,54 @@ To delete account simply hit the delete button">Need help?</a>
             <h6 class="modal-title w-100 font-weight-bold">Bank city: {{bcity}}</h6>
           </div>
           
-  <form class="form-style-7" [formGroup]="updateForm" (ngSubmit)="updateAccount()">
+  <form class="form-style-7" [formGroup]="updateForm" (ngSubmit)="updateAccount(updateForm.value)">
       <li>
         <label for="fname">ID</label>
-        <input type="text" class="form-control" id="fname" name="fname" placeholder={{id}} formControlName="fnamef" maxlength="100">
-        <span>Please select an account to edit from the table</span>
+        <input type="text" class="form-control" id="id" name="id" placeholder={{id}} formControlName="id" maxlength="100">
+        <span *ngIf="iD2 && iD2.invalid">Please confirm account id to edit</span>
       </li>
       <li>
           <label for="fname">First name</label>
-          <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name" formControlName="fnamef" maxlength="100">
-          <span *ngIf="fnam && fnam.invalid">This is invalid</span>
+          <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name" formControlName="fname" maxlength="100">
+          <span *ngIf="fnam2 && fnam2.invalid">This is invalid</span>
       </li>
       <li>
         <label for="sname">Second name</label>
-        <input type="text" class="form-control" id="sname" name="sname" placeholder="Enter second name" formControlName="snamef" maxlength="=100">
-        <span *ngIf="snam && snam.invalid">This is invalid</span>
+        <input type="text" class="form-control" id="sname" name="sname" placeholder="Enter second name" formControlName="sname" maxlength="=100">
+        <span *ngIf="snam2 && snam2.invalid">This is invalid</span>
       </li>
       <li>
       <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" formControlName="emailf" maxlength="100">
-        <span *ngIf="emai && emai.invalid">This is invalid</span>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" formControlName="email" maxlength="100">
+        <span *ngIf="emai2 && emai2.invalid">This is invalid</span>
       </li>
       <li>
         <label for="num">Phone number</label>
-        <input type="text" class="form-control" id="pnum" name="pnum" placeholder="Enter phone number" formControlName="pnumf" maxlength="100">
-        <span *ngIf="pnu && pnu.invalid">This is invalid</span>
+        <input type="text" class="form-control" id="pnum" name="pnum" placeholder="Enter phone number" formControlName="phone" maxlength="100">
+        <span *ngIf="pnu2 && pnu2.invalid">This is invalid</span>
       </li>
       <li>
         <label for="bname">Bank name</label>
-        <input type="text" class="form-control" id="bname" name="bname" aria-describedby="emailHelp" placeholder="Enter bank name" formControlName="bnamef">
-        <span *ngIf="bnam && bnam.invalid">This is invalid</span>
+        <input type="text" class="form-control" id="bname" name="bname" aria-describedby="emailHelp" placeholder="Enter bank name" formControlName="bname">
+        <span *ngIf="bnam2 && bnam2.invalid">This is invalid</span>
       </li>
       <li>
         <label for="bcity">Bank city</label>
-        <input type="text" class="form-control" id="bcity" name="bcity" placeholder="Enter bank city" formControlName="bcityf" maxlength="100">
-        <span *ngIf="bcit && bcit.invalid">This is invalid</span>
+        <input type="text" class="form-control" id="bcity" name="bcity" placeholder="Enter bank city" formControlName="bcity" maxlength="100">
+        <span *ngIf="bcit2 && bcit2.invalid">This is invalid</span>
       </li>
       <div id="mymain2">
-        <button (click)="updateAccount()" mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect [disabled]="updateForm.invalid">Update</button>
+        <button type="submit"  mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect [disabled]="updateForm.invalid">Update</button>
       </div>
     </form>
-    <button mdbBtn color="default" class="waves-light button2 justify-content-center" mdbWavesEffect [disabled]="updateForm.invalid">Delete</button>
+    <form class="form-style-7" [formGroup]="deleteForm" (ngSubmit)="deleteAccount(deleteForm.value)">
+      <li>
+        <label for="fname">ID</label>
+        <input type="text" class="form-control" id="id" name="id" placeholder={{id}} formControlName="id" maxlength="100">
+        <span *ngIf="iD3 && iD3.invalid">Please confirm the account to delete</span>
+      </li>
+      <button mdbBtn color="default" type="submit"  class="waves-light button2 justify-content-center" mdbWavesEffect [disabled]="deleteForm.invalid">Delete</button>
+    </form>
           <div class="modal-footer">
             <div id="mymain">
               <p class="marGin">Transaction</p>

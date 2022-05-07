@@ -233,7 +233,7 @@ export class TransactionsComponent implements OnInit {
           }
       ];
         
-        Storage.put("export.json", arrayTransaction, {
+        Storage.put("export.txt", arrayTransaction, {
           progressCallback(progress) {
             console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
           },
@@ -247,6 +247,8 @@ export class TransactionsComponent implements OnInit {
           Bucket: 'amplifyfraud47bd7f7c50d8482991d31567cf5c4fd0210839-dev',
           Key: 'public/result.html'
         };
+
+        var isPaused = false;
         
         var string = "";
         let s3 = new AWS.S3();
@@ -268,7 +270,38 @@ export class TransactionsComponent implements OnInit {
       }
 
       onLoad(){
-
+        var Time = 172793;
+        var Probability= 0;
+        var Amount= (Math.random() * (0 - 25692) + 0.0200).toFixed(2)
+        var v1= (Math.random() * (-72.8 - 22.1) + 0.0200).toFixed(4)
+        var v2= (Math.random() * (-28.4 - 9.4) + 0.0200).toFixed(4)
+        var v3= (Math.random() * (-48.4 - 9.5) + 0.0200).toFixed(4)
+        var v4= (Math.random() * (-5.7 - 16.9) + 0.0200).toFixed(4)
+        var v5= (Math.random() * (-113.8 - 34.9) + 0.0200).toFixed(4)
+        var v6= (Math.random() * (-26.2 - 73.3) + 0.0200).toFixed(4)
+        var v7= (Math.random() * (-43.6 - 120.6) + 0.0200).toFixed(4)
+        var v8= (Math.random() * (-73.3 - -3.6) + 0.0200).toFixed(4)
+        var v9= (Math.random() * (-13.5 - 15.6) + 0.0200).toFixed(4)
+        var v10= (Math.random() * (-24.6 - 23.8) + 0.0200).toFixed(4)
+        var v11= (Math.random() * (-4.8 - 12.0) + 0.0200).toFixed(4)
+        var v12= (Math.random() * (-18.7 - 7.9) + 0.0200).toFixed(4)
+        var v13= (Math.random() * (-5.8 - 7.2) + 0.0200).toFixed(4)
+        var v14= (Math.random() * (-19.3 - 10.6) + 0.0200).toFixed(4)
+        var v15= (Math.random() * (-4.5 - 8.9) + 0.0200).toFixed(4)
+        var v16= (Math.random() * (-14.2 - 17.4) + 0.0200).toFixed(4)
+        var v17= (Math.random() * (-25.2 - 9.3) + 0.0200).toFixed(4)
+        var v18= (Math.random() * (-9.5 - 0.4) + 0.0200).toFixed(4)
+        var v19= (Math.random() * (-7.3 - 0.4) + 0.0200).toFixed(4)
+        var v20= (Math.random() * (-21.7 - 39.5) + 0.0200).toFixed(4)
+        var v21= (Math.random() * (-34.9 - 27.3) + 0.0200).toFixed(4)
+        var v22= (Math.random() * (-11.0 - 10.5) + 0.0200).toFixed(4)
+        var v23= (Math.random() * (-44.9 - 22.6) + 0.0200).toFixed(4)
+        var v24= (Math.random() * (-2.9 - 4.6) + 0.0200).toFixed(4)
+        var v25= (Math.random() * (-10.3 - 7.6) + 0.0200).toFixed(4)
+        var v26= (Math.random() * (-2.7 - 3.6) + 0.0200).toFixed(4)
+        var v27= (Math.random() * (-22.6 - 31.7) + 0.0200).toFixed(4)
+        var v28= (Math.random() * (-15.5 - 33.9) + 0.0200).toFixed(4)
+        console.log(v1)
       }
   
   }

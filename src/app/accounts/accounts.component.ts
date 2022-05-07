@@ -10,7 +10,6 @@ import { newArray } from '@angular/compiler/src/util';
 import { v4 as uuid } from "uuid";
 
 
-
 @Component({
   selector: 'app-accounts',
   templateUrl: './accounts.component.html',
@@ -29,21 +28,39 @@ export class AccountsComponent implements OnInit {
     { headerName: "Bank Name", field: "bname", filter: true, sortable: true}
   ];
     
-  public createForm: FormGroup;
+  public addForm: FormGroup;
+  public updateForm: FormGroup;
+  public deleteForm: FormGroup;
 
   /* declare restaurants variable */
   public accounts: Array<Account> = [];
 
   constructor(private api: APIService, private fb: FormBuilder, private router: Router,) {
-    this.createForm = this.fb.group({
-      fname: ['', Validators.required],
-      sname: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
-      bname: ['', Validators.required],
-      bcity: ['', Validators.required],
-      transactions: ['', Validators.required],
-    });
+
+    this.addForm = this.fb.group({
+      id:new FormControl('',[Validators.required]),
+      fname:new FormControl('',[Validators.required]),
+      sname:new FormControl('',[Validators.required]),
+      email:new FormControl('',[Validators.required,Validators.email]),
+      phone:new FormControl('',[Validators.required]),
+      bname:new FormControl('',[Validators.required]),
+      bcity:new FormControl('',[Validators.required])
+    })
+
+    this.updateForm = this.fb.group({
+      id:new FormControl('',[Validators.required]),
+      fname:new FormControl('',[Validators.required]),
+      sname:new FormControl('',[Validators.required]),
+      email:new FormControl('',[Validators.required,Validators.email]),
+      phone:new FormControl('',[Validators.required]),
+      bname:new FormControl('',[Validators.required]),
+      bcity:new FormControl('',[Validators.required])
+    })
+
+    this.deleteForm = this.fb.group({
+      id:new FormControl('',[Validators.required])
+    })
+
     this.validatingForm = new FormGroup({
       loginFormModalEmail: new FormControl('', Validators.email),
       loginFormModalPassword: new FormControl('', Validators.required)
@@ -59,6 +76,7 @@ export class AccountsComponent implements OnInit {
   phone!: string;
   bname!: string;
   bcity!: string;
+  object!: string;
 
   addedAccount!: string;
   
@@ -85,47 +103,74 @@ export class AccountsComponent implements OnInit {
     hasRoute(route: string) {
       return this.router.url.includes(route);
     }  
-    
-    updateForm = new FormGroup({
-      fnamef:new FormControl('',[Validators.required]),
-      snamef:new FormControl('',[Validators.required]),
-      emailf:new FormControl('',[Validators.required,Validators.email]),
-      pnumf:new FormControl('',[Validators.required]),
-      bnamef:new FormControl('',[Validators.required]),
-      bcityf:new FormControl('',[Validators.required])
-    })
 
-    updateAccount(){
+    updateAccount(account : Account){
       console.log(this.id)
       console.log(this.updateForm.value)
+      this.api
+        .UpdateAccount(account)
+      console.log('Updated');
     }
 
-    addAccount(){
+    addAccount(account : Account){
         this.addedAccount = uuid();
         console.log(this.addedAccount);
-        console.log(this.updateForm.value)
+        console.log(this.addForm.value)
+        this.api
+          .CreateAccount(account)
+        console.log('Added');
     }
 
+    get iD(){
+      return this.addForm.get('id');
+    }
     get fnam(){
-      return this.updateForm.get('fnamef');
+      return this.addForm.get('fname');
     }
     get snam(){
-      return this.updateForm.get('snamef');
+      return this.addForm.get('sname');
     }
     get emai(){
-      return this.updateForm.get('emailf');
+      return this.addForm.get('email');
     }
     get pnu(){
-      return this.updateForm.get('pnumf');
+      return this.addForm.get('phone');
     }
     get bnam(){
-      return this.updateForm.get('bnamef');
+      return this.addForm.get('bname');
     }
     get bcit(){
-      return this.updateForm.get('bcityf');
+      return this.addForm.get('bcity');
+    }
+
+    get iD2(){
+      return this.updateForm.get('id');
+    }
+    get fnam2(){
+      return this.updateForm.get('fname');
+    }
+    get snam2(){
+      return this.updateForm.get('sname');
+    }
+    get emai2(){
+      return this.updateForm.get('email');
+    }
+    get pnu2(){
+      return this.updateForm.get('phone');
+    }
+    get bnam2(){
+      return this.updateForm.get('bname');
+    }
+    get bcit2(){
+      return this.updateForm.get('bcity');
+    }
+
+    get iD3(){
+      return this.deleteForm.get('id');
     }
 
     onRowClicked(event: any){
+      this.object = event.data.toString();
       this.id= event.data.id.toString();
       this.fname = event.data.fname.toString()
       this.sname = event.data.sname.toString()
@@ -144,5 +189,16 @@ export class AccountsComponent implements OnInit {
       console.log(this.phone)
       console.log(this.bname)
       console.log(this.bcity)
+    }
+
+    idGenetate(){
+      this.addedAccount = uuid();
+    }
+
+    deleteAccount(account : Account){
+      console.log(this.deleteForm.value)
+      this.api
+        .DeleteAccount(account)
+      console.log('Deleted');
     }
 }
